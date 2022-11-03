@@ -30,7 +30,8 @@ export default [
     plugins: [
       resolve(),
       typescript({
-        tsconfigOverride: { compilerOptions: { declaration: true } }
+        tsconfigOverride: { compilerOptions: { declaration: true } },
+        clean: true
       }),
       license(licenseOpts),
       del({
@@ -49,7 +50,7 @@ export default [
     },
     plugins: [
       resolve(),
-      typescript(),
+      typescript({ clean: true }),
       buble(bubleOpts),
       license(licenseOpts)
     ]
@@ -64,7 +65,7 @@ export default [
     },
     plugins: [
       resolve(),
-      typescript(),
+      typescript({ clean: true }),
       buble(bubleOpts),
       terser({
         compress: {

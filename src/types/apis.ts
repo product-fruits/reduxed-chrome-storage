@@ -1,6 +1,7 @@
 export enum StorageAreaName {
   local = 'local',
-  sync = 'sync'
+  sync = 'sync',
+  session = 'session'
 }
 
 interface StorageChange {
@@ -62,6 +63,7 @@ export interface ChromeNamespace extends ApisNamespace {
   storage: {
     local: StorageAreaCallbacked,
     sync: StorageAreaCallbacked,
+    session: StorageAreaCallbacked,
     onChanged: ApisNamespace['storage']['onChanged']
   }
 }
@@ -69,7 +71,8 @@ export interface ChromeNamespace extends ApisNamespace {
 export interface BrowserNamespace extends ApisNamespace {
   storage: {
     local: StorageAreaPromised,
-    sync: StorageAreaPromised,
+    sync: StorageAreaPromised
+    session: StorageAreaPromised,
     onChanged: ApisNamespace['storage']['onChanged']
   }
 }

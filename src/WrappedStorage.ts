@@ -27,7 +27,8 @@ export default abstract class WrappedStorage<N extends ApisNamespace> {
   }) {
     this.ns = namespace;
     this.areaName = area === StorageAreaName.sync? StorageAreaName.sync :
-      StorageAreaName.local;
+                    area === StorageAreaName.session ? StorageAreaName.session :
+                                                        StorageAreaName.local;
     this.key = key || 'reduxed';
     this.listeners = [];
     this.errListeners = [];
